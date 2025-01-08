@@ -4,10 +4,10 @@ from .models import Inventory
 class AddInventoryForm(ModelForm):
     class Meta:
         model = Inventory
-        fields = ['name', 'cost_per_item', 'quantity_in_stock', 'quantity_sold']
+        fields = ['name', 'description', 'quantity_sold','total_quantity','price','category','owner']
 
 
-class UpdateInventoryForm(ModelForm):
-    class Meta:
-        model = Inventory
-        fields = ['name', 'cost_per_item', 'quantity_in_stock', 'quantity_sold']
+# class UpdateInventoryForm(ModelForm):
+#     class Meta:
+#         model = Inventory
+#         fields = ['name', 'description', 'quantity', 'price','category','owner']

@@ -1,9 +1,59 @@
 body{
     background-color: rgb(245, 245, 245);
+    user-select: none; /* Prevent text selection inside the link */
 }
 .content-section {
     background: #fff;
     margin: 40px;
     padding: 1.5rem 1.5rem;
     border-radius: 10px;
+    user-select: none; /* Prevent text selection inside the link */
 }
+
+.nav-item h5 {
+    color: white;
+    margin: 10px;
+}
+
+.navbar-brand{
+    color: white;
+    margin: 10px;
+
+}
+
+.text-muted{
+    color: white;
+    margin: 10px;
+}
+
+.nav-link active{
+    color: white;
+    margin: 10px;
+}
+
+.Registerform{
+    background: #a0ebb7;
+    margin: 50px;
+    padding: 2.5rem 2.5rem;
+    border-radius: 10px;
+}
+
+.form-register2{
+    margin-left: 190px;
+    font-size: 20px
+}
+
+button {
+    outline: none; /* Removes the focus outline */
+    user-select: none; /* Prevent text selection */
+    cursor: default; /* Change the cursor to default when hovering */
+}
+
+a {
+    user-select: none; /* Prevent text selection inside the link */
+}
+
+.form-cancel{
+    margin-left: 350px;
+}
+

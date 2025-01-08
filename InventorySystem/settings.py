@@ -40,6 +40,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
+    'accounts',
+    'corsheaders',
+    'django_filters',
+
 ]
 
 MIDDLEWARE = [
@@ -50,6 +55,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'InventorySystem.urls'
@@ -131,6 +137,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # crispy forms
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
-# login urls
-LOGIN_REDIRECT_URL = "/inventory"
-LOGIN_URL = "login"
+TIME_ZONE = 'Africa/Cairo'
+
+
+# AUTH_USER_MODEL = 'accounts.CustomUser'
+
+REST_FRAMEWORK = {
+    'DEFAULT_FILTER_BACKENDS': ('django_filters.rest_framework.DjangoFilterBackend',)
+}

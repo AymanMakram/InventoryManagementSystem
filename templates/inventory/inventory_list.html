@@ -1,30 +1,70 @@
 {% extends "../layout.html" %}
+{%load static%}
 {% block content %}
+<div>
+    <div class="container">
+        <h2>Select Category</h2>
+        <p>Select a category from the dropdown below to view inventory items:</p>
+
+        <!-- Dropdown to select category -->
+        <select id="categorySelect">
+            <option value="" disabled selected>Select a category</option>
+            <option value="electronics">Electronics</option>
+            <option value="furniture">Furniture</option>
+            <option value="clothing">Clothing</option>
+            <option value="toys">Toys</option>
+        </select>
+
+        <!-- Button to navigate to the filtered inventory page -->
+        <button onclick="goToCategory()">Go to Category</button>
+    </div>
+
+    <script>
+        // Function to handle the redirection when category is selected
+        function goToCategory() {
+            // Get the selected category from the dropdown
+            const category = document.getElementById('categorySelect').value;
+            
+            if (category) {
+                // Construct the URL based on the selected category
+                window.location.href = `/inventory/api/filter/?category=${category}`;
+            } else {
+                alert("Please select a category.");
+            }
+        }
+    </script>
+</div>
 <div class="content-section">
     <table class="table table-striped table-bordered table-hovet">
         <thead class="thead-dark">
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">Name</th>
-                <th scope="col">Quantity In Stock</th>
-                <th scope="col">Quantity Sold</th>
-                <th scope="col">Cost Per Item</th>
-                <th scope="col">Sales or Revenue</th>
-                <th scope="col">Stock Date</th>
-                <th scope="col">Last Sales Date</th>
+                <th scope="col">description</th>
+                <th scope="col">quantity_in_stock</th>
+                <th scope="col">quantity_sold</th>
+                <th scope="col">total_quantity</th>
+                <th scope="col">price</th>
+                <th scope="col">category</th>
+                <th scope="col">date_added</th>
+                <th scope="col">last_updated</th>
+                <th scope="col">owner</th>
             </tr>  
         </thead>
         <tbody>
             {% for inventory in inventories %}
-                <tr style="cursor: pointer; cursor: hand;" onclick="window.location = `{% url 'per_product' inventory.id %}`">
+            <tr style="cursor: pointer; cursor: hand;" onclick="window.location = `{% url 'per_product' inventory.id %}`">
                     <th scope="row">{{ forloop.counter }}</th>
                     <th scope="row">{{ inventory.name }}</th>
+                    <th scope="row">{{ inventory.description }}</th>
                     <th scope="row">{{ inventory.quantity_in_stock }}</th>
                     <th scope="row">{{ inventory.quantity_sold }}</th>
-                    <th scope="row">{{ inventory.cost_per_item }}</th>
-                    <th scope="row">{{ inventory.sales }}</th>
-                    <th scope="row">{{ inventory.stock_date }}</th>
-                    <th scope="row">{{ inventory.last_sales_date }}</th>
+                    <th scope="row">{{ inventory.total_quantity }}</th>
+                    <th scope="row">{{ inventory.price }}</th>
+                    <th scope="row">{{ inventory.category }}</th>
+                    <th scope="row">{{ inventory.date_added }}</th>
+                    <th scope="row">{{ inventory.last_updated }}</th>
+                    <th scope="row">{{ inventory.owner }}</th>
                 </tr>
             {% endfor %}
         </tbody>
