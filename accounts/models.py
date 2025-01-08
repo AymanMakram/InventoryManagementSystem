@@ -33,7 +33,8 @@ class CustomUser(AbstractBaseUser):
     first_name = models.CharField(max_length=50, blank=True)
     last_name = models.CharField(max_length=50, blank=True)
     is_active = models.BooleanField(default=True)
-    is_staff = models.BooleanField(default=True)  # Use is_staff for admin access
+    is_staff = models.BooleanField(default=False)  # Use is_staff for admin access
+    is_superuser = models.BooleanField(default=False)  # Use is_staff for admin access
     date_joined = models.DateTimeField(auto_now_add=True)
 
     # USERNAME_FIELD will be 'username' as we use email for login
@@ -48,7 +49,7 @@ class CustomUser(AbstractBaseUser):
         return self.username
 
     def has_perm(self, perm, obj=None):
-        return self.is_staff
+        return self.is_active
 
     def has_module_perms(self, app_label):
-        return self.is_staff
+        return self.is_active
