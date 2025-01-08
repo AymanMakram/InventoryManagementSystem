@@ -14,6 +14,7 @@ from django_filters.rest_framework import DjangoFilterBackend
 from .filters import InventoryFilter  # Import the filter class
 
 
+
 # Custom permission class to ensure that only the owner of an object can update or delete it.
 class IsOwner(BasePermission):
     def has_object_permission(self, request, view, obj):

@@ -140,7 +140,7 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 TIME_ZONE = 'Africa/Cairo'
 
 
-# AUTH_USER_MODEL = 'accounts.CustomUser'
+AUTH_USER_MODEL = 'accounts.CustomUser'
 
 REST_FRAMEWORK = {
     'DEFAULT_FILTER_BACKENDS': ('django_filters.rest_framework.DjangoFilterBackend',)

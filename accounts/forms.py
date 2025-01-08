@@ -1,12 +1,12 @@
 from django import forms
-from django.contrib.auth.models import User
+from accounts.models import CustomUser
 
 class UserRegistrationForm(forms.ModelForm):
     password = forms.CharField(widget=forms.PasswordInput())
     password_confirm = forms.CharField(widget=forms.PasswordInput())
 
     class Meta:
-        model = User
+        model = CustomUser
         fields = ['username', 'email']
 
     def clean(self):
