@@ -40,8 +40,7 @@ Create an endpoint to display the current inventory levels:
 - Show available quantities of each inventory item.
 - Implement filtering options such as:
   - `Category`
-  - `Price Range`
-  - `Low Stock` (items with a quantity below a defined threshold)
+
 
 ### 4. **Track Inventory Changes**
 
@@ -77,11 +76,11 @@ Create an endpoint to display the current inventory levels:
 
 - Implement **pagination** to handle large datasets efficiently when retrieving inventory items.
 - Provide **sorting options**:
-  - Sort by `Name`, `Quantity`, `Price`, or `Date Added`.
+  - Sort by `Date Added`.
 
 ### 5. **Deployment**
 
-- Deploy the API on **Heroku** or **PythonAnywhere**.
+- Deploy the API on **PythonAnywhere**.
 - Ensure the API is **secure**, **performant**, and accessible in the deployed environment.
 
 ## API Endpoints
@@ -101,17 +100,24 @@ Create an endpoint to display the current inventory levels:
 
 ### Inventory Changes
 
-- **GET** `/inventory/{id}/changes/`: View the change history for a specific inventory item.
+- **GET** `/inventory/per_product/{id}/`: View the change history for a specific inventory item.
 
 ## Installation
 
 ### Prerequisites
 
-1. Python 3.x
-2. Django 3.x or later
-3. Django REST Framework (DRF)
-4. PostgreSQL (or any other relational database)
-5. `pip` (Python package installer)
+asgiref==3.8.1
+Django==5.1.4
+django-cors-headers==4.6.0
+django-crispy-forms==2.3
+django-filter==24.3
+djangorestframework==3.15.2
+djangorestframework-simplejwt==5.3.1
+mysqlclient==2.2.6
+pillow==11.0.0
+PyJWT==2.10.1
+sqlparse==0.5.3
+tzdata==2024.2
 
 ### Steps to Run the Project Locally
 
